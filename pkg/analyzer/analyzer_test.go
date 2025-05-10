@@ -1,7 +1,7 @@
 package analyzer_test
 
 import (
-	"flag"
+	"flag" //nolint:depguard // Importing the flag package is fine here
 	"path/filepath"
 	"testing"
 
@@ -47,8 +47,6 @@ func TestNamedResult(t *testing.T) {
 	}
 
 	for _, f := range fixtures {
-		f := f
-
 		t.Run(f.name, func(t *testing.T) {
 			t.Parallel()
 
@@ -67,7 +65,7 @@ type flagger struct {
 
 func (f *flagger) withRequireNamed() *flagger {
 	if err := f.fs.Lookup(analyzer.FlagNameRequireNamed).Value.Set("true"); err != nil {
-		panic(err)
+		panic(err) //nolint:forbidigo // Somewhat fine to panic in tests
 	}
 
 	return f
@@ -75,7 +73,7 @@ func (f *flagger) withRequireNamed() *flagger {
 
 func (f *flagger) withRequireUnnamed() *flagger {
 	if err := f.fs.Lookup(analyzer.FlagNameRequireUnnamed).Value.Set("true"); err != nil {
-		panic(err)
+		panic(err) //nolint:forbidigo // Somewhat fine to panic in tests
 	}
 
 	return f
