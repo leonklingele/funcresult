@@ -1,9 +1,11 @@
 # funcresult — a Go linter to analyze function result parameters
 
+![build](https://github.com/leonklingele/funcresult/actions/workflows/build.yml/badge.svg)
+
 ## Installation
 
 ```sh
-go get -u github.com/leonklingele/funcresult/...
+go install github.com/leonklingele/funcresult@latest
 funcresult -help
 ```
 

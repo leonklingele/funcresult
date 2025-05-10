@@ -18,7 +18,7 @@ type funcVisitor struct {
 }
 
 func (fv *funcVisitor) Visit(n ast.Node) ast.Visitor {
-	switch t := n.(type) {
+	switch t := n.(type) { //nolint:gocritic,revive // Why should we?
 	case *ast.FuncType:
 		fv.funcs = append(fv.funcs, &Func{
 			Type: t,
